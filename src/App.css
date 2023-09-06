@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  background: transparent;
+  margin-block: 0.4em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border: 0.21em solid transparent;
+  border-radius: 1rem;
+  background-color: #cbcbcb;
+  background-clip: content-box;
+}

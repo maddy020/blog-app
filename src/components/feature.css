@@ -1,0 +1,37 @@
+.feature-section {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.features {
+  display: flex;
+  gap: 2rem;
+  background-color:rgb(176, 176, 176);
+  padding: 1rem;  
+  border-radius: 1.5rem;
+  justify-content: space-evenly;
+  width: 16%;
+}
+
+.Icon {
+  cursor: pointer;
+  width: 2.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
