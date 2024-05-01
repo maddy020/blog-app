@@ -78,12 +78,15 @@ const CreateAndUpdate = ({ title, subtitle, content, flag, id }) => {
         content: editorData,
       };
       if (flag == false) {
-        await axios.post("http://localhost:8001/create", blogData, {
+        await axios.post(`${import.meta.env.VITE_BASE_URL}/create`, blogData, {
           withCredentials: true,
         });
       } else {
         console.log("reached  here");
-        await axios.put(`http://localhost:8001/edit/${id}`, blogData);
+        await axios.put(
+          `${import.meta.env.VITE_BASE_URL}/edit/${id}`,
+          blogData
+        );
       }
       navigate("/");
     } catch (error) {

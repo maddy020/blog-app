@@ -23,7 +23,7 @@ const Signup = () => {
         return;
       }
       await axios
-        .post("http://localhost:8001/signup", user, {
+        .post(`${import.meta.env.VITE_BASE_URL}/signup`, user, {
           withCredentials: true,
         })
         .then((response) => {

@@ -9,9 +9,12 @@ const Delete = () => {
   useEffect(() => {
     async function deleteBlog() {
       try {
-        await axios.delete(`http://localhost:8001/myblogs/delete/${id}`, {
-          withCredentials: true,
-        });
+        await axios.delete(
+          `${import.meta.env.VITE_BASE_URL}/myblogs/delete/${id}`,
+          {
+            withCredentials: true,
+          }
+        );
         console.log("Blog deleted successfully");
         navigate("/myblogs");
       } catch (error) {

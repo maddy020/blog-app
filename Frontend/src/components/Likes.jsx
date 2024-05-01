@@ -11,7 +11,7 @@ const Likes = ({ data, onUpdate }) => {
   const handleClick = async () => {
     console.log("Reached post route");
     await axios.post(
-      `http://localhost:8001/like`,
+      `${import.meta.env.VITE_BASE_URL}/like`,
       { id: data._id },
       {
         withCredentials: true,

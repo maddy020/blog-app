@@ -8,9 +8,12 @@ const MyBlogs = () => {
   useEffect(() => {
     async function getBlogs() {
       try {
-        const res = await axios.get("http://localhost:8001/myblogs", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/myblogs`,
+          {
+            withCredentials: true,
+          }
+        );
         setData(res.data.blogs);
       } catch (error) {
         console.error("Error in setting the state", error);

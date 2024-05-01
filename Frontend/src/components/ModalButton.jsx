@@ -28,7 +28,7 @@ const ModalButton = ({ data, onUpdate }) => {
         comment: inputRef.current.value,
         blogid: data._id,
       };
-      await axios.post("http://localhost:8001/comments", details, {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/comments`, details, {
         withCredentials: true,
       });
       onUpdate();
@@ -41,7 +41,7 @@ const ModalButton = ({ data, onUpdate }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:8001/comments/${data._id}/${id}`,
+        `${import.meta.env.VITE_BASE_URL}/comments/${data._id}/${id}`,
         data._id
       );
       onUpdate();

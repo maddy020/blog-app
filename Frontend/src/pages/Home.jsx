@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     async function getBlogs() {
       try {
-        const res = await axios.get("http://localhost:8001");
+        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}`);
         setAllData(res.data.blogs);
         setData(res.data.blogs);
       } catch (error) {

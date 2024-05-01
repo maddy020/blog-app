@@ -15,7 +15,7 @@ const ImageGen = () => {
       formData.append("file", file);
       console.log(formData.getAll("file"));
       const result = await axios.post(
-        "http://localhost:8001/upload",
+        `${import.meta.env.VITE_BASE_URL}/upload`,
         formData,
         {
           headers: {

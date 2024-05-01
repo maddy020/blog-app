@@ -10,7 +10,7 @@ const Readmore = () => {
   const [data, setData] = useState("");
 
   async function getBlog() {
-    const res = await axios.get(`http://localhost:8001/read/${id}`);
+    const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/read/${id}`);
     setData(res.data);
   }
 

@@ -17,9 +17,13 @@ const Login = () => {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       };
-      const res = await axios.post("http://localhost:8001/login", user, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/login`,
+        user,
+        {
+          withCredentials: true,
+        }
+      );
       localStorage.setItem("token", res.data.token);
       emailRef.current.value = "";
       passwordRef.current.value = "";

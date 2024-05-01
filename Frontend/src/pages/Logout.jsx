@@ -7,7 +7,7 @@ function Logout() {
   useEffect(() => {
     const logout = async () => {
       try {
-        await axios.get("http://localhost:8001/logout", {
+        await axios.get(`${import.meta.env.VITE_BASE_URL}/logout`, {
           withCredentials: true,
         });
         localStorage.removeItem("token");
