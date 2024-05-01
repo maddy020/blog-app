@@ -33,11 +33,18 @@ async function handleLogin(req, res) {
   const decoded = jwt.verify(token, process.env.secret);
   return res
     .status(200)
-    .cookie("token", token, { httpOnly: true, secure: true })
+    .cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" })
     .json({
       token: decoded.name,
       msg: "Logged In Successfully",
     });
+}
+
+async function handleLogout(req, res) {
+  return res
+    .status(200)
+    .clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" })
+    .json({ msg: "Logged Out Successfully" });
 }
 
 async function handlecreate(req, res) {
