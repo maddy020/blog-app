@@ -61,7 +61,7 @@ router.post("/upload", upload.single("file"), handleUpload);
 router.get("/logout", (req, res) => {
   res
     .status(200)
-    .clearCookie("token", { httpOnly: true, secure: true, sameSite: none })
+    .clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" })
     .json({ msg: "Logged Out Successfully" });
 });
 

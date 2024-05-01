@@ -40,13 +40,6 @@ async function handleLogin(req, res) {
     });
 }
 
-async function handleLogout(req, res) {
-  return res
-    .status(200)
-    .clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" })
-    .json({ msg: "Logged Out Successfully" });
-}
-
 async function handlecreate(req, res) {
   try {
     const rest = await Blog.create({
