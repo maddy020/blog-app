@@ -1,0 +1,58 @@
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+/*******************BlogItem csss************************/
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Pagination css */
+
+/* ReactPaginate.css */
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-item {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.pagination-item:hover {
+  background-color: #f2f2f2;
+}
+
+.pagination-item--selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-previous,
+.pagination-next {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.pagination-previous:hover,
+.pagination-next:hover {
+  background-color: #f2f2f2;
+}
