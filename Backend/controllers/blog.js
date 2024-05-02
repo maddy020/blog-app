@@ -21,23 +21,32 @@ async function handleSignup(req, res) {
 }
 
 async function handleLogin(req, res) {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email: email });
-  if (!user) return res.status(404).json({ msg: "User Not Found" });
-  const validPassword = await bcrypt.compare(password, user.password);
-  if (!validPassword) return res.status(401).json({ msg: "Invalid Password" });
-  const token = jwt.sign(
-    { email: user.email, name: user.name },
-    process.env.secret
-  );
-  const decoded = jwt.verify(token, process.env.secret);
-  return res
-    .status(200)
-    .cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" })
-    .json({
-      token: decoded.name,
-      msg: "Logged In Successfully",
-    });
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email: email });
+    if (!user) return res.status(404).json({ msg: "User Not Found" });
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword)
+      return res.status(401).json({ msg: "Invalid Password" });
+    const token = jwt.sign(
+      { email: user.email, name: user.name },
+      process.env.secret
+    );
+    const decoded = jwt.verify(token, process.env.secret);
+    return res
+      .status(200)
+      .cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      })
+      .json({
+        token: decoded.name,
+        msg: "Logged In Successfully",
+      });
+  } catch (error) {
+    return res.status(401).json({ msg: "Invalid Password" });
+  }
 }
 
 async function handlecreate(req, res) {

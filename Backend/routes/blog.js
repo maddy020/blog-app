@@ -25,7 +25,7 @@ const {
 // const upload = multer({ storage: storage });
 const upload = multer({ dest: "../uploads/" });
 
-router.get("/", async (req, res) => {
+router.get("/getallBlogs", async (req, res) => {
   try {
     const blogs = await Blog.find();
     return res.status(200).json({ blogs: blogs });

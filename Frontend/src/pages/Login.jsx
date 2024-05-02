@@ -4,6 +4,7 @@ import { useRef } from "react";
 import "../App.css";
 import CardWrapper from "../components/CardWrapper";
 import InputBox from "../components/InputBox";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,8 +29,9 @@ const Login = () => {
       emailRef.current.value = "";
       passwordRef.current.value = "";
       navigate("/");
+      toast.success("Hi,Welcome Back");
     } catch (error) {
-      console.log("Error in login", error);
+      toast.error("Invalid Credentials , Try Again");
     }
   };
 
