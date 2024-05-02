@@ -14,7 +14,12 @@ mongoose
   .then(() => console.log("Connected to the database"))
   .catch((e) => console.log("Error in connection", e));
 
-app.use(cors({ origin: [process.env.Origin], credentials: true }));
+app.use(
+  cors({
+    origin: [process.env.Origin, "http://localhost:5173"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());

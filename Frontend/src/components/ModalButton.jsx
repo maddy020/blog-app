@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import Modal from "react-modal";
 import "./ModalButton.css";
 import axios from "axios";
+import del from "../../assets/delete.svg";
 
 const ModalButton = ({ data, onUpdate }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -51,7 +52,9 @@ const ModalButton = ({ data, onUpdate }) => {
   };
   return (
     <div>
-      <button onClick={openModal}>Comments</button>
+      <button className="authButton" onClick={openModal}>
+        Comments
+      </button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -60,23 +63,33 @@ const ModalButton = ({ data, onUpdate }) => {
       >
         <div>
           <h2>Comment Your Thoughts</h2>
-          <input
-            type="text"
-            placeholder="Add your comment here"
-            ref={inputRef}
-          />
-          <button onClick={handleClick}>Post</button>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <input
+              type="text"
+              placeholder="Add your comment here"
+              ref={inputRef}
+              className="inputBox"
+            />
+            <button className="authButton" onClick={handleClick}>
+              Post
+            </button>
+          </div>
           {data.comments && data.comments.length > 0 ? (
             <ul>
               {data.comments.map((comment, index) => (
                 <div key={index}>
-                  <p>{comment.user}</p>
                   <li key={index}>
+                    <p>{comment.user}</p>
                     {comment.content}
                     {currUser == comment.user && (
-                      <button onClick={() => handleDelete(comment._id)}>
-                        Delete
-                      </button>
+                      <img
+                        onClick={() => handleDelete(comment._id)}
+                        src={del}
+                        alt=""
+                        width={20}
+                        height={20}
+                        style={{ cursor: "pointer" }}
+                      />
                     )}
                   </li>
                 </div>
@@ -85,7 +98,9 @@ const ModalButton = ({ data, onUpdate }) => {
           ) : (
             <p>No comments yet.</p>
           )}
-          <button onClick={closeModal}>Close</button>
+          <button className="authButton" onClick={closeModal}>
+            Close
+          </button>
         </div>
       </Modal>
     </div>

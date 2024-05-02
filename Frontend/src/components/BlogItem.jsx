@@ -13,24 +13,24 @@ const BlogItem = ({ item }) => {
           height={200}
           className="homeImage"
         />
-        <div>
+        <div style={{ width: "80%" }}>
           <h2>{item.title}</h2>
           <p className="subtitle">{item.subtitle}</p>
           <div className="readbtn">
             <Link className="btn" to={`/read/${item.id}`}>
               Read more
             </Link>
+            {route == "/myblogs" && (
+              <>
+                <Link className="btn" to={`/edit/${item.id}`}>
+                  Edit
+                </Link>
+                <Link className="btn" to={`/myblogs/delete/${item.id}`}>
+                  Delete
+                </Link>
+              </>
+            )}
           </div>
-          {route == "/myblogs" && (
-            <>
-              <Link className="btn" to={`/edit/${item.id}`}>
-                Edit
-              </Link>
-              <Link className="btn" to={`/myblogs/delete/${item.id}`}>
-                Delete
-              </Link>
-            </>
-          )}
         </div>
       </div>
     </>

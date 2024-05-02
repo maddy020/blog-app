@@ -10,7 +10,9 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #ebf4fb;
+  overflow-x: hidden;
 }
+
 .btn {
   padding: 0.75rem;
   text-decoration: none;
@@ -19,7 +21,7 @@ body {
   cursor: pointer;
   border-radius: 0.5rem;
   font-size: 1.25rem;
-  width: 95%;
+  width: 25%;
 }
 
 .form {
@@ -50,6 +52,14 @@ body {
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.3s ease-in-out; /* Transition effect */
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  padding: 3rem;
 }
 
 .create:hover {

@@ -32,7 +32,9 @@ const Share = () => {
   };
   return (
     <div>
-      <button onClick={openModal}>Share</button>
+      <button className="authButton" onClick={openModal}>
+        Share
+      </button>
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}

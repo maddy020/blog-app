@@ -36,7 +36,7 @@ const ImageGen = () => {
       onSubmit={(e) => handleGenerate(e)}
     >
       <input type="file" name="file" onChange={handleFileChange} id="inp" />
-      <button className="btn">Generate Image Link</button>
+      <button className="btn">Generate </button>
     </form>
   );
 };

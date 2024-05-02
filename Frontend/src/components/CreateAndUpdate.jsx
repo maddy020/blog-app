@@ -102,14 +102,6 @@ const CreateAndUpdate = ({ title, subtitle, content, flag, id }) => {
         className="createForm"
       >
         <h1>Create Your Blog Post</h1>
-        {/* <label htmlFor="Title">Title:</label>
-        <input
-          type="text"
-          required
-          placeholder="Title"
-          defaultValue={title}
-          ref={tref}
-        /> */}
         <InputBox type="text" cref={tref} label="Title" />
         <InputBox type="text" cref={stref} label="Sub-Title" />
         <div id="editor" className="editor">

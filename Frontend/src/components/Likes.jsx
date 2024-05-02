@@ -6,10 +6,8 @@ import "./ModalButton.css";
 const Likes = ({ data, onUpdate }) => {
   const [isOpen, setisOpen] = useState(false);
   const [liked, setisLiked] = useState(false);
-  const currUser = localStorage.getItem("token");
 
   const handleClick = async () => {
-    console.log("Reached post route");
     await axios.post(
       `${import.meta.env.VITE_BASE_URL}/like`,
       { id: data._id },
@@ -17,13 +15,15 @@ const Likes = ({ data, onUpdate }) => {
         withCredentials: true,
       }
     );
+    setisLiked(!liked);
     onUpdate();
-    console.log("Finished the like process ");
   };
 
   return (
-    <div>
-      <button onClick={handleClick}>{liked ? "Liked" : "Like"}</button>
+    <div className="btnContainer">
+      <button className="authButton" onClick={handleClick}>
+        {liked ? "Liked" : "Like"}
+      </button>
       <div onClick={() => setisOpen(true)}>
         {data.likes && data.likes.length > 0 ? (
           <p style={{ cursor: "pointer" }}>({data.likes.length})</p>
